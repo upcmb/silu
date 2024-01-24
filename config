@@ -1,0 +1,23 @@
+# HTTP
+http.port = 8000
+
+# HTTPS
+# https.port = 8001
+# https.crt = path/to/crt
+# https.key = path/to/key
+
+# Auth
+# auth.username = username
+# auth.password = password
+# auth.type = basic                        # |         none          |          basic         |
+
+# Log                                      # | detail: https://github.com/deno-library/logger |
+# log.mode = both                          # |  disable  |   console    |   file   |   both   |
+# log.level = info                         # |     info     |      warn     |      error      |
+# log.dir = path/to/log
+# log.rotate = true
+# log.max_bytes = eval(1024 * 1024)
+# log.max_backup_count = 30
+
+# Timeout
+timeout = 1000
