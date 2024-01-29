@@ -1,5 +1,5 @@
-export { MuxAsyncIterator } from "https://deno.land/std@0.211.0/async/mux_async_iterator.ts";
-export { default as Logger } from "https://deno.land/x/logger@v1.1.3/logger.ts";
+export { MuxAsyncIterator } from "https://deno.land/std@0.213.0/async/mux_async_iterator.ts";
+export { default as Logger } from "https://deno.land/x/logger@v1.1.4/logger.ts";
 export {
   Command,
   EnumType,
