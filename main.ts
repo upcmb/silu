@@ -7,7 +7,7 @@ const authType = new EnumType(["none", "basic"]);
 
 const cmd = new Command()
   .name("Silu")
-  .version("0.1.0")
+  .version("0.1.2")
   .description("A simple http/https tunnel && proxy server of Deno")
   .usage("[option...]")
   .type("logMode", logModeType)
@@ -19,7 +19,11 @@ const cmd = new Command()
     {
       default: 1000,
     },
-  ).option("--config, -c <file:string>", "Config file", {
+  )
+  .option("--bind, -b <hostname:string>", "Bind address", {
+    default: "0.0.0.0",
+  })
+  .option("--config, -c <file:string>", "Config file", {
     standalone: true,
   })
   .group("HTTP")
@@ -77,8 +81,8 @@ async function main() {
     Deno.exit();
   }
 
-  const { http, https, timeout, log, auth } = command.options;
-  const listener = await configure(http, https, logger, log);
+  const { http, https, timeout, log, auth, bind } = command.options;
+  const listener = await configure(http, https, logger, log, bind);
 
   for await (const conn of listener) {
     handler(conn, auth, timeout, logger).catch((e) => {

@@ -19,5 +19,8 @@ http.port = 8000
 # log.max_bytes = eval(1024 * 1024)
 # log.max_backup_count = 30
 
+# Bind
+# bind = [::]
+
 # Timeout
 timeout = 1000

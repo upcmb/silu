@@ -25,6 +25,7 @@ export async function configure(
   https: HttpsConfig,
   logger: Logger,
   loggerOption: LoggerOption,
+  bind: string,
 ) {
   if (loggerOption.mode === "both" || loggerOption.mode === "file") {
     const { maxBackupCount, maxBytes, rotate } = loggerOption;
@@ -38,9 +39,9 @@ export async function configure(
   let httpServer;
   let httpsServer;
   if (http?.port !== undefined) {
-    httpServer = Deno.listen({ port: http.port });
-    const p = (<Deno.NetAddr> httpServer.addr).port;
-    logger.info(`Http server is listening on port ${p}`);
+    httpServer = Deno.listen({ port: http.port, hostname: bind });
+    const addr = <Deno.NetAddr> httpServer.addr;
+    logger.info(`HTTP server is listening on ${addr.hostname}:${addr.port}`);
   }
 
   if (https) {
@@ -50,9 +51,9 @@ export async function configure(
         Deno.readTextFile(crt),
         Deno.readTextFile(key),
       ]);
-      httpsServer = Deno.listenTls({ port, cert: c, key: k });
-      const p = (<Deno.NetAddr> httpsServer.addr).port;
-      logger.info(`Https server is listening on port ${p}`);
+      httpsServer = Deno.listenTls({ port, cert: c, key: k, hostname: bind });
+      const addr = <Deno.NetAddr> httpsServer.addr;
+      logger.info(`HTTPS server is listening on ${addr.hostname}:${addr.port}`);
     }
   }
 

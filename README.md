@@ -15,6 +15,7 @@ deno install --allow-net --allow-read --allow-write https://deno.land/x/silu/mai
 
 - `--timeout, -t` Timeout for each TCP connection.
 - `--config, -c` Configuration file path.
+- `--bind, -b` Bind address.
 
 #### HTTP Options
 
