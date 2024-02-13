@@ -71,7 +71,7 @@ export async function handler(
     await Promise.all([
       incomeConn.readable.pipeTo(targetConn.writable, { signal }),
       targetConn.readable.pipeTo(incomeConn.writable, { signal }),
-    ]).catch(() => ctrl.abort);
+    ]).catch(() => ctrl.abort());
   }
 
   async function proxy() {
