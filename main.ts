@@ -10,7 +10,7 @@ const authType = new EnumType(["none", "basic"]);
 
 const cmd = new Command()
   .name("Silu")
-  .version("0.2.0")
+  .version("0.2.1")
   .description("A simple http/https tunnel && proxy server of Deno")
   .usage("[option...]")
   .type("logMode", logModeType)
