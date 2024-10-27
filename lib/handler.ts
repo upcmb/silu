@@ -1,13 +1,7 @@
-import {
-  Auth,
-  AuthType,
-  Request,
-  safeClose,
-  timeoutConn,
-  timeoutFetch,
-} from "./mod.ts";
-
-import type { Logger } from "./mod.ts";
+import { safeClose, timeoutConn, timeoutFetch } from "./deps.ts";
+import { Auth, type AuthType } from "./auth.ts";
+import { Request } from "./request.ts";
+import type { Logger } from "Logger";
 
 export async function handler(
   incomeConn: Deno.Conn,

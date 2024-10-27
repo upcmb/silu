@@ -8,7 +8,7 @@ Make sure you have Deno runtime installed. Then, install Silu using the
 following command:
 
 ```
-deno install --allow-net --allow-read --allow-write https://deno.land/x/silu/main.ts
+deno install --allow-net --allow-read --allow-write --global https://deno.land/x/silu/main.ts
 ```
 
 ## Options

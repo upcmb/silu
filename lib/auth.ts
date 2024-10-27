@@ -1,4 +1,4 @@
-import type { Request } from "./mod.ts";
+import type { Request } from "./request.ts";
 
 export enum AuthResult {
   Pass,
@@ -6,8 +6,8 @@ export enum AuthResult {
 }
 
 export type AuthType = {
-  username?: string | undefined;
-  password?: string | undefined;
+  username?: string;
+  password?: string;
   type: "none" | "basic";
 };
 
@@ -50,7 +50,7 @@ export class Auth {
       case "basic": {
         const [result, errMsg] = this.basic(header);
         if (result === AuthResult.Fail) {
-          await this.failed(errMsg);
+          await this.failed(errMsg.toString());
         }
         return;
       }
@@ -71,7 +71,7 @@ export class Auth {
         return [AuthResult.Fail, `${decodedCredentials} mismatch`];
       }
     } catch (e) {
-      return [AuthResult.Fail, e.toString()];
+      return [AuthResult.Fail, e as Error];
     }
   }
 }

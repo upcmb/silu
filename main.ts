@@ -1,4 +1,7 @@
-import { Command, configure, EnumType, handler, Logger } from "./lib/mod.ts";
+import { Logger } from "Logger";
+import { Command, EnumType } from "Cliffy";
+import { configure } from "./lib/config.ts";
+import { handler } from "./lib/handler.ts";
 
 const logger = new Logger();
 const logModeType = new EnumType(["disable", "console", "file", "both"]);
@@ -7,7 +10,7 @@ const authType = new EnumType(["none", "basic"]);
 
 const cmd = new Command()
   .name("Silu")
-  .version("0.1.3")
+  .version("0.2.0")
   .description("A simple http/https tunnel && proxy server of Deno")
   .usage("[option...]")
   .type("logMode", logModeType)

@@ -1,5 +1,5 @@
-import { MuxAsyncIterator } from "./mod.ts";
-import type { Logger } from "./mod.ts";
+import { MuxAsyncIterator } from "MuxAsyncIterator";
+import type { Logger } from "Logger";
 
 type HttpsConfig = {
   port?: number | undefined;
