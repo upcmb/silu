@@ -1,5 +1,5 @@
-import { Logger } from "Logger";
-import { Command, EnumType } from "Cliffy";
+import { Logger } from "jsr:@deno-lib/logger@^1.1.6";
+import { Command, EnumType } from "jsr:@cliffy/command@^1.0.0-rc.7";
 import { configure } from "./lib/config.ts";
 import { handler } from "./lib/handler.ts";
 

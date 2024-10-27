@@ -1,7 +1,7 @@
 import { safeClose, timeoutConn, timeoutFetch } from "./deps.ts";
 import { Auth, type AuthType } from "./auth.ts";
 import { Request } from "./request.ts";
-import type { Logger } from "Logger";
+import type { Logger } from "jsr:@deno-lib/logger@^1.1.6";
 
 export async function handler(
   incomeConn: Deno.Conn,

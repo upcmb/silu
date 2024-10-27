@@ -1,5 +1,5 @@
-import { MuxAsyncIterator } from "MuxAsyncIterator";
-import type { Logger } from "Logger";
+import { MuxAsyncIterator } from "jsr:@std/async/mux-async-iterator";
+import type { Logger } from "jsr:@deno-lib/logger@^1.1.6";
 
 type HttpsConfig = {
   port?: number | undefined;
